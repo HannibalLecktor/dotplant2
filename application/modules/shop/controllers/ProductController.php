@@ -182,9 +182,12 @@ class ProductController extends Controller
                     if (!is_array($widgetConfiguration)) {
                         $widgetConfiguration = [];
                     }
-                    $activeWidgetConfiguration = Json::decode($activeWidget->configuration_json, true);
-                    if (!is_array($activeWidgetConfiguration)) {
-                        $activeWidgetConfiguration  = [];
+                    $activeWidgetConfiguration = [];
+                    if ($activeWidget->configuration_json) {
+                        $activeWidgetConfiguration = Json::decode($activeWidget->configuration_json, true);
+                        if (!is_array($activeWidgetConfiguration)) {
+                            $activeWidgetConfiguration  = [];
+                        }
                     }
                     $config = ArrayHelper::merge($widgetConfiguration, $activeWidgetConfiguration);
                     $config['themeWidgetModel'] = $widgetModel;

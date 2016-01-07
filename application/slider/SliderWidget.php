@@ -103,9 +103,12 @@ class SliderWidget extends Widget
             $this->slider->custom_slide_view_file :
             $this->slide_view_file;
 
-        $slider_params = Json::decode($this->slider->params);
-        if (!is_array($slider_params)) {
-            $slider_params = [];
+        $slider_params = [];
+        if ($this->slider->params) {
+            $slider_params = Json::decode($this->slider->params);
+            if (!is_array($slider_params)) {
+                $slider_params = [];
+            }
         }
 
         $slider_params = ArrayHelper::merge($this->params, $slider_params);
