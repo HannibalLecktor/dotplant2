@@ -128,6 +128,17 @@ class ProductController extends Controller
                             'meta_description'
                         );
                     }
+
+                    if (!empty($selected_category->meta_keywords)) {
+                        $this->view->registerMetaTag(
+                            [
+                                'name' => 'keywords',
+                                'content' => $selected_category->meta_keywords,
+                            ],
+                            'meta_keywords'
+                        );
+                    }
+
                     $this->view->title = $selected_category->title;
                 }
             }
@@ -279,6 +290,16 @@ class ProductController extends Controller
                     'content' => $product->meta_description,
                 ],
                 'meta_description'
+            );
+        }
+
+        if (!empty($product->meta_keywords)) {
+            $this->view->registerMetaTag(
+                [
+                    'name' => 'keywords',
+                    'content' => $product->meta_keywords,
+                ],
+                'meta_keywords'
             );
         }
 

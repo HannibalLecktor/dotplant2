@@ -28,6 +28,7 @@ use yii\helpers\Url;
  * @property string $title
  * @property string $h1
  * @property string $meta_description
+ * @property string $meta_keywords
  * @property string $breadcrumbs_label
  * @property string $slug
  * @property string $slug_compiled
@@ -146,7 +147,7 @@ class Category extends ActiveRecord implements \JsonSerializable
         return [
             [['category_group_id', 'parent_id', 'name', 'slug'], 'required'],
             [['category_group_id', 'parent_id', 'slug_absolute', 'sort_order', 'active'], 'integer'],
-            [['name', 'title', 'h1', 'meta_description', 'breadcrumbs_label', 'content', 'announce'], 'string'],
+            [['name', 'title', 'h1', 'meta_description', 'meta_keywords', 'breadcrumbs_label', 'content', 'announce'], 'string'],
             [['slug'], 'string', 'max' => 80],
             [['slug_compiled'], 'string', 'max' => 180],
             [['title_append'], 'string'],
@@ -189,6 +190,7 @@ class Category extends ActiveRecord implements \JsonSerializable
             'title' => Yii::t('app', 'Title'),
             'h1' => Yii::t('app', 'H1'),
             'meta_description' => Yii::t('app', 'Meta Description'),
+            'meta_keywords' => Yii::t('app', 'Meta Keywords'),
             'breadcrumbs_label' => Yii::t('app', 'Breadcrumbs Label'),
             'slug' => Yii::t('app', 'Slug'),
             'slug_compiled' => Yii::t('app', 'Slug Compiled'),
@@ -231,6 +233,7 @@ class Category extends ActiveRecord implements \JsonSerializable
         $query->andFilterWhere(['like', 'title', $this->title]);
         $query->andFilterWhere(['like', 'h1', $this->h1]);
         $query->andFilterWhere(['like', 'meta_description', $this->meta_description]);
+        $query->andFilterWhere(['like', 'meta_keywords', $this->meta_keywords]);
         $query->andFilterWhere(['like', 'breadcrumbs_label', $this->breadcrumbs_label]);
         $query->andFilterWhere(['active' => $this->active]);
         return $dataProvider;

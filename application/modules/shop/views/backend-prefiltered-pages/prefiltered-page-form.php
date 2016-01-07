@@ -97,6 +97,7 @@ $this->registerJs('
                 <?= $form->field($model, 'h1')?>
                 <?= $form->field($model, 'breadcrumbs_label')?>
                 <?= $form->field($model, 'meta_description')->textarea()?>
+                <?= $form->field($model, 'meta_keywords')->textarea()?>
                 <?= $form->field($model, 'active')->checkbox()?>
 
             <?php BackendWidget::end(); ?>

@@ -593,6 +593,7 @@ return [
     'Message' => 'Сообщение',
     'Messages has been saved' => 'Сообщения были сохранены',
     'Meta Description' => 'Мета-описание',
+    'Meta Keywords' => 'Мета Ключевые слова',
     'Meta Tags' => 'Мета теги',
     'Meta cache' => 'Кэш мета-данных',
     'Meta tags' => 'Мета теги',

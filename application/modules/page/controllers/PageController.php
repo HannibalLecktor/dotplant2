@@ -51,6 +51,16 @@ class PageController extends Controller
             );
         }
 
+        if (!empty($model->meta_keywords)) {
+            $this->view->registerMetaTag(
+                [
+                    'name' => 'keywords',
+                    'content' => $model->meta_keywords,
+                ],
+                'meta_keywords'
+            );
+        }
+
         $this->view->title = $model->title;
         if (!empty($model->h1)) {
             $this->view->blocks['h1'] = $model->h1;
@@ -85,6 +95,15 @@ class PageController extends Controller
                     'content' => $model->meta_description,
                 ],
                 'meta_description'
+            );
+        }
+        if (!empty($model->meta_keywords)) {
+            $this->view->registerMetaTag(
+                [
+                    'name' => 'keywords',
+                    'content' => $model->meta_keywords,
+                ],
+                'meta_keywords'
             );
         }
 

@@ -34,6 +34,7 @@ use yii\data\Pagination;
  * @property string $title
  * @property string $h1
  * @property string $meta_description
+ * @property string $meta_keywords
  * @property string $breadcrumbs_label
  * @property string $slug
  * @property string $slug_compiled
@@ -102,6 +103,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
                     'title',
                     'h1',
                     'meta_description',
+                    'meta_keywords',
                     'breadcrumbs_label',
                     'content',
                     'announce',
@@ -145,6 +147,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
             'title' => Yii::t('app', 'Title'),
             'h1' => Yii::t('app', 'H1'),
             'meta_description' => Yii::t('app', 'Meta Description'),
+            'meta_keywords' => Yii::t('app', 'Meta Keywords'),
             'breadcrumbs_label' => Yii::t('app', 'Breadcrumbs Label'),
             'slug' => Yii::t('app', 'Slug'),
             'slug_compiled' => Yii::t('app', 'Slug Compiled'),

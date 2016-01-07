@@ -28,6 +28,7 @@ use yii\db\Expression;
  * @property string $title
  * @property string $h1
  * @property string $meta_description
+ * @property string $meta_keywords
  * @property string $breadcrumbs_label
  * @property string $content
  * @property string $announce
@@ -69,6 +70,7 @@ class Page extends ActiveRecord implements \JsonSerializable
                     'title',
                     'h1',
                     'meta_description',
+                    'meta_keywords',
                     'breadcrumbs_label',
                     'announce',
                     'slug_compiled',
@@ -102,6 +104,7 @@ class Page extends ActiveRecord implements \JsonSerializable
             'title' => Yii::t('app', 'Title'),
             'h1' => Yii::t('app', 'H1'),
             'meta_description' => Yii::t('app', 'Meta Description'),
+            'meta_keywords' => Yii::t('app', 'Meta Keywords'),
             'breadcrumbs_label' => Yii::t('app', 'Breadcrumbs Label'),
             'announce' => Yii::t('app', 'Announce'),
             'sort_order' => Yii::t('app', 'Sort Order'),
@@ -178,6 +181,7 @@ class Page extends ActiveRecord implements \JsonSerializable
         $query->andFilterWhere(['like', 'title', $this->title]);
         $query->andFilterWhere(['like', 'h1', $this->h1]);
         $query->andFilterWhere(['like', 'meta_description', $this->meta_description]);
+        $query->andFilterWhere(['like', 'meta_keywords', $this->meta_keywords]);
         $query->andFilterWhere(['like', 'breadcrumbs_label', $this->breadcrumbs_label]);
         return $dataProvider;
     }

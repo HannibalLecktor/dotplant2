@@ -40,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'title',
                         'h1',
                         'meta_description',
+                        'meta_keywords',
                         [
                             'class' => ActionColumn::className(),
                             'options' => [

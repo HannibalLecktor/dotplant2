@@ -267,6 +267,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
 
             <?=$form->field($model, 'meta_description')->textarea()?>
+            <?=$form->field($model, 'meta_keywords')->textarea()?>
 
             <?php BackendWidget::end(); ?>
 
