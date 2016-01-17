@@ -231,7 +231,7 @@ class SliderController extends Controller
         $image = \yii\imagine\Image::thumbnail($uploadDir . $fileName,
             $model->image_width,
             $model->image_height,
-            ManipulatorInterface::THUMBNAIL_INSET
+            ManipulatorInterface::THUMBNAIL_OUTBOUND
         );
         $image->save($uploadDir . 'small-' . $fileName, ['quality'=>95]);
 
