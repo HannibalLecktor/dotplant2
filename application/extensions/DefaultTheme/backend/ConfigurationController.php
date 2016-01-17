@@ -195,7 +195,9 @@ class ConfigurationController extends BackendController
             $className = $widget->configuration_model;
 
             $configurationModel = new $className;
-            $configurationModel->setAttributes(Json::decode($model->configuration_json));
+            if ($model->configuration_json) {
+                $configurationModel->setAttributes(Json::decode($model->configuration_json));
+            }
         } else {
             $configurationModel = new BaseWidgetConfigurationModel();
             $configurationModel->loadState(Json::decode($widget->configuration_json));
@@ -213,7 +215,7 @@ class ConfigurationController extends BackendController
             $configurationModel->load(Yii::$app->request->post());
 
             if ($configurationModel->validate()) {
-                if ($configurationModel instanceof BaseWidgetConfigurationModel) {
+                if ($configurationModel instanceof BaseWidgetConfigurationModel ) {
                     $json = Json::decode($configurationModel->configurationJson);
                     $json['header'] = $configurationModel->header;
                     $json['displayHeader'] = $configurationModel->displayHeader;
