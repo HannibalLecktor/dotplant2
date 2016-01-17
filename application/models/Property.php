@@ -32,6 +32,7 @@ use \devgroup\TagDependencyHelper\ActiveRecordHelper;
  * @property integer $required
  * @property integer $interpret_as
  * @property integer $captcha
+ * @property integer $reCaptcha
  * @property string $mask
  * @property integer $alias
  * @property PropertyGroup $group
@@ -46,6 +47,7 @@ class Property extends ActiveRecord
     public $required;
     public $interpret_as;
     public $captcha;
+    public $reCaptcha;
 
     /**
      * @inheritdoc

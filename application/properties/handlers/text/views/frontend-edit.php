@@ -13,4 +13,16 @@
  */
 
 ?>
-<?= $form->field($model, $property_key);
+<?if ($property_key == 'captcha'):?>
+    <?= $form->field($model, $property_key)->widget(\yii\captcha\Captcha::className(), ['captchaAction' => '/default/captcha',]);?>
+<?elseif($property_key == 'reCaptcha'):?>
+    <?= $form->field($model, $property_key)->widget(
+        \app\web\theme\module\components\recaptcha\ReCaptcha::className(),
+        [
+            'theme' => 'light'
+        ]
+    )
+    ?>
+<?else:?>
+    <?= $form->field($model, $property_key);?>
+<?endif;?>
