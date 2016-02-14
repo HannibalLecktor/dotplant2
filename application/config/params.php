@@ -3,13 +3,14 @@
 use yii\helpers\ArrayHelper;
 
 $params = [
-    'adminEmail' => 'tehdir@skobeeff.ru',
+    'adminEmail' => 'fans7288@gmail.com',
     'icon-framework' => 'fa',
     'rbacType' => [
         \yii\rbac\Item::TYPE_PERMISSION => 'Permission',
         \yii\rbac\Item::TYPE_ROLE => 'Role',
     ],
     'currency' => '<del>Р</del>',
+    'hostInfo' => 'http://localhost:3030'
 ];
 
 return ArrayHelper::merge(

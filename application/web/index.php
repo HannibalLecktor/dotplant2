@@ -3,12 +3,16 @@
 include_once(__DIR__ . '/../modules/seo/redirects/redirects.php');
 
 // comment out the following two lines when deployed to production
-defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_ENV') or define('YII_ENV', 'dev');
+//defined('YII_DEBUG') or define('YII_DEBUG', true);
+//defined('YII_ENV') or define('YII_ENV', 'prod');
 defined('YII_CONSOLE') or define('YII_CONSOLE', false);
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/../config/web.php');
+\Yii::$classMap['app\modules\shop\helpers\BaseOrderStageHandlers'] = '@app/web/theme/module/modules/shop/helpers/BaseOrderStageHandlers.php';
+\Yii::$classMap['app\modules\shop\models\PaymentType'] = '@app/web/theme/module/modules/shop/models/PaymentType.php';
+\Yii::$classMap['app\modules\shop\controllers\CartController'] = '@app/web/theme/module/modules/shop/controllers/CartController.php';
+\Yii::$classMap['app\modules\shop\controllers\ProductController'] = '@app/web/theme/module/modules/shop/controllers/ProductController.php';
 
 (new yii\web\Application($config))->run();
