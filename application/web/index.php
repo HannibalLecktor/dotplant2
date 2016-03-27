@@ -14,6 +14,7 @@ $config = require(__DIR__ . '/../config/web.php');
 \Yii::$classMap['app\modules\shop\models\PaymentType'] = '@app/web/theme/module/modules/shop/models/PaymentType.php';
 \Yii::$classMap['app\modules\user\models\LoginForm'] = '@app/web/theme/module/modules/user/models/LoginForm.php';
 \Yii::$classMap['app\modules\shop\controllers\CartController'] = '@app/web/theme/module/modules/shop/controllers/CartController.php';
+\Yii::$classMap['app\modules\user\controllers\UserController'] = '@app/web/theme/module/modules/user/controllers/UserController.php';
 \Yii::$classMap['app\modules\shop\controllers\ProductController'] = '@app/web/theme/module/modules/shop/controllers/ProductController.php';
 
 (new yii\web\Application($config))->run();
