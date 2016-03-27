@@ -42,6 +42,20 @@ var Shop = {
             'type' : 'post',
             'url' : '/shop/cart/change-quantity'
         });
+    },
+    'changeFullQuantity' : function(item) {
+        var table = $(item).closest('tbody');
+        var quantityInput = $(table).find('input[data-type=quantity]');
+        var totalCount = $(table).find('#total_count');
+        var quantity = 0;
+
+        if (quantityInput.length > 0) {
+            $.each(quantityInput, function(i, val) {
+                quantity += parseInt($(val).val());
+            });
+        }
+
+        $(totalCount).html(quantity);
     }
 };
 
@@ -211,6 +225,7 @@ $(function() {
                 $('#cart-table .items-count, #cart-info-widget .items-count').html(data.itemsCount);
                 $input.parents('tr').eq(0).find('.item-price').html(data.itemPrice);
                 $input.val(data.calculatedQuantity);
+                Shop.changeFullQuantity($input);
             }
         });
     });
@@ -219,6 +234,7 @@ $(function() {
         var $input = $this.parents('td').eq(0).find('input[data-type=quantity]');
         var quantity = parseFloat($input.val());
         var nominal = parseFloat($input.data('nominal'));
+        var oldQuantity = quantity;
         if (isNaN(quantity)) {
             quantity = nominal;
         }
@@ -235,6 +251,7 @@ $(function() {
                 $('#cart-table .items-count, #cart-info-widget .items-count').html(data.itemsCount);
                 $input.parents('tr').eq(0).find('.item-price').html(data.itemPrice);
                 $input.val(data.calculatedQuantity);
+                Shop.changeFullQuantity($this, oldQuantity, data.calculatedQuantity);
             }
         });
         return false;
