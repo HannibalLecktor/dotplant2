@@ -56,6 +56,15 @@ var Shop = {
         }
 
         $(totalCount).html(quantity);
+    },
+    'showSuccesBuy' : function(item) {
+        var dropdownMessage = $('#to-basket-message').clone();
+        item.closest('.buy_block').append(dropdownMessage).addClass('dropdown');
+        $(dropdownMessage).show();
+
+        setTimeout(function () {
+            $(dropdownMessage).remove();
+        }, 2000);
     }
 };
 
@@ -169,9 +178,9 @@ $(function() {
             }
             if ($widget.length > 0) {
                 $widget.find('.total-price').html(data['totalPrice']);
-
                 $widget.find('.items-count').html(data['totalQuantity']);
 
+                Shop.showSuccesBuy($this);
 
                 var imgtofly = $this.hasClass('fly-out') ? $this : $($this.closest('.fly-out'));
                 if (imgtofly.length === 0) {
