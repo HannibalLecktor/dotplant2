@@ -147,6 +147,7 @@ $(function() {
         if (isNaN(quantity) || quantity < 1) {
             quantity = 1;
         }
+
         var $body = $('body');
         $body.trigger({
             'type': 'addToCartClicked',
@@ -169,7 +170,7 @@ $(function() {
             if ($widget.length > 0) {
                 $widget.find('.total-price').html(data['totalPrice']);
 
-                $widget.find('.items-count').html(data['itemsCount']);
+                $widget.find('.items-count').html(data['totalQuantity']);
 
 
                 var imgtofly = $this.hasClass('fly-out') ? $this : $($this.closest('.fly-out'));
