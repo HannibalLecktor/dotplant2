@@ -12,6 +12,7 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 $config = require(__DIR__ . '/../config/web.php');
 \Yii::$classMap['app\modules\shop\helpers\BaseOrderStageHandlers'] = '@app/web/theme/module/modules/shop/helpers/BaseOrderStageHandlers.php';
 \Yii::$classMap['app\modules\shop\models\PaymentType'] = '@app/web/theme/module/modules/shop/models/PaymentType.php';
+\Yii::$classMap['app\modules\shop\models\Product'] = '@app/web/theme/module/modules/shop/models/Product.php';
 \Yii::$classMap['app\modules\user\models\LoginForm'] = '@app/web/theme/module/modules/user/models/LoginForm.php';
 \Yii::$classMap['app\modules\shop\controllers\CartController'] = '@app/web/theme/module/modules/shop/controllers/CartController.php';
 \Yii::$classMap['app\modules\user\controllers\UserController'] = '@app/web/theme/module/modules/user/controllers/UserController.php';
