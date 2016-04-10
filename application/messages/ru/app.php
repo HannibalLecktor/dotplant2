@@ -1,6 +1,8 @@
 <?php
 
 return array (
+  'You looked' => 'Вы смотрели',
+  'Max Last Viewed Products' => 'Максимальное кол-во Последних просмотренных товаров',
   'By quantity' => 'по наличию',
   'By popularity' => 'по популярности',
   'By cost' => 'по цене',
