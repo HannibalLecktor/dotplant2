@@ -45,6 +45,7 @@ return array (
   'Added' => 'Добавлено',
   'To basket' => 'В корзину',
   'All products' => 'Все товары',
+  'All new' => 'Все новинки',
   'New products' => 'Новинки',
   'Authorization' => 'Авторизация',
   'Incorrect username or password.' => 'Неправильный логин или пароль.',
