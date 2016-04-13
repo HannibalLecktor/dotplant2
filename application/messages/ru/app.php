@@ -1,6 +1,8 @@
 <?php
 
 return array (
+  'Bill-file' => ' Реквизиты',
+  'Your bill for pay' => 'Ваш счет на оплату',
   'You looked' => 'Вы смотрели',
   'Max Last Viewed Products' => 'Максимальное кол-во Последних просмотренных товаров',
   'By quantity' => 'по наличию',
