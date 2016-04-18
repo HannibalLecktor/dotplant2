@@ -57,14 +57,30 @@ var Shop = {
 
         $(totalCount).html(quantity);
     },
-    'showSuccesBuy' : function(item) {
+    'showSuccesBuy' : function(item, message) {
         var dropdownMessage = $('#to-basket-message').clone();
+        if (message) {
+            dropdownMessage.find('p').html(message);
+        }
         item.closest('.buy_block').append(dropdownMessage).addClass('dropdown');
         $(dropdownMessage).show();
 
         setTimeout(function () {
             $(dropdownMessage).remove();
         }, 2000);
+    },
+    'changeItemsPrice' : function (item, id) {
+        var items = item.closest('tbody').find('tr.item[data-id!="' + id + '"]');
+        if (items.length > 0) {
+            $.each(items, function (i, v) {
+                Shop.changeAmount($(v).data('id'), $(v).find('[data-type="quantity"]').val(), function(data) {
+                    if (data.success) {
+                        $(v).find('.item-price').html(data.itemPrice);
+                        $(v).find('.price-per-pcs').html(data.oneItemPrice);
+                    }
+                });
+            })
+        }
     }
 };
 
@@ -180,7 +196,7 @@ $(function() {
                 $widget.find('.total-price').html(data['totalPrice']);
                 $widget.find('.items-count').html(data['totalQuantity']);
 
-                Shop.showSuccesBuy($this);
+                Shop.showSuccesBuy($this, data.message);
 
                 var imgtofly = $this.hasClass('fly-out') ? $this : $($this.closest('.fly-out'));
                 if (imgtofly.length === 0) {
@@ -245,6 +261,8 @@ $(function() {
         var quantity = parseFloat($input.val());
         var nominal = parseFloat($input.data('nominal'));
         var oldQuantity = quantity;
+        var itemPrice = $input.parents('tr').eq(0).find('.price-per-pcs');
+        var oldPrice = itemPrice.html();
         if (isNaN(quantity)) {
             quantity = nominal;
         }
@@ -260,8 +278,12 @@ $(function() {
                 $('#cart-table .total-price, #cart-info-widget .total-price').html(data.totalPrice);
                 $('#cart-table .items-count, #cart-info-widget .items-count').html(data.itemsCount);
                 $input.parents('tr').eq(0).find('.item-price').html(data.itemPrice);
+                $input.parents('tr').eq(0).find('.price-per-pcs').html(data.oneItemPrice);
                 $input.val(data.calculatedQuantity);
                 Shop.changeFullQuantity($this, oldQuantity, data.calculatedQuantity);
+                if (oldPrice != data.oneItemPrice) {
+                    Shop.changeItemsPrice($this, $input.data('id'));
+                }
             }
         });
         return false;

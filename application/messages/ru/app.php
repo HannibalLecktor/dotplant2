@@ -1,6 +1,11 @@
 <?php
 
 return array (
+    'Before get the wholesale price stay {price}' => 'До обслуживания по оптовым ценам осталось {price}',
+    'You serve with wholesale prices' => 'Вы обслуживаетесь по оптовым ценам',
+    'Wholesale begin price' => 'Начало оптовых цен',
+    'Wholesale price' => 'Оптовая цена',
+    'Wholesale old Price' => 'Старая оптовая цена',
   'Bill-file' => ' Реквизиты',
   'Your bill for pay' => 'Ваш счет на оплату',
   'You looked' => 'Вы смотрели',
@@ -260,7 +265,9 @@ return array (
   'Convert nominal' => 'Номинал конверсии курса',
   'Convert rate' => 'Курс валют',
   'Convert rate is updated automatically if currency rate provider is set and includes additional rate and nominal.' => 'Курс валют обновляется автоматически если установлен провайдер курса валют и включает в себя надбавки в коэф. и номинале.',
-  'Cost' => 'Стоимость',
+  'Cost' => 'Цена',
+  'Cost, whsl' => 'Цена, опт',
+  'Price, whsl:' => 'Цена, опт:',
   'Count children products' => 'Считать дочерние продукты',
   'Count unique products only' => 'Считать только уникальные продукты',
   'Counter Id' => 'ID счетчика',
