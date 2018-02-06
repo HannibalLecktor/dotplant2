@@ -1,3 +1,4 @@
+/messages/ru/app.php
 web/.sass-cache
 web/css/.sass-cache
 web/theme
@@ -7,3 +8,4 @@ modules/seo/redirects/redirectsArray.php
 jolici.phar
 composer.lock
 installed.mark
+vendor

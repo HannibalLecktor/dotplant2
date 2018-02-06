@@ -1,7 +1,5 @@
 <?php
-
 namespace app\modules\review\models;
-
 use app\models\Object;
 use devgroup\TagDependencyHelper\ActiveRecordHelper;
 use Yii;
@@ -10,7 +8,6 @@ use yii\caching\TagDependency;
 use app\properties\HasProperties;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-
 /**
  * This is the model class for table "review".
  *
@@ -38,7 +35,6 @@ class Review extends \yii\db\ActiveRecord
     protected $targetObjectModel;
     public $captcha;
     public $useCaptcha = false;
-
     /**
      * @inheritdoc
      */
@@ -46,7 +42,6 @@ class Review extends \yii\db\ActiveRecord
     {
         return '{{%review}}';
     }
-
     /**
      * @inheritdoc
      */
@@ -65,7 +60,6 @@ class Review extends \yii\db\ActiveRecord
         }
         return $rules;
     }
-
     /**
      * @inheritdoc
      */
@@ -90,10 +84,10 @@ class Review extends \yii\db\ActiveRecord
             'search' => [
                 'object_id',
                 'status',
+                'object_model_id'
             ]
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -108,7 +102,6 @@ class Review extends \yii\db\ActiveRecord
             ],
         ];
     }
-
     public static function getStatuses()
     {
         return [
@@ -117,7 +110,6 @@ class Review extends \yii\db\ActiveRecord
             self::STATUS_NOT_APPROVED => Yii::t('app', 'Not approved'),
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -136,12 +128,10 @@ class Review extends \yii\db\ActiveRecord
             'root_id' => Yii::t('app', 'Root ID'),
         ];
     }
-
     public function getSubmission()
     {
         return $this->hasOne(Submission::className(), ['id' => 'submission_id']);
     }
-
     /**
      * Получает отзывы по конкретной инстанции модели
      * @var $models \app\modules\review\models\Review[]
@@ -149,7 +139,7 @@ class Review extends \yii\db\ActiveRecord
      */
     public static function getForObjectModel($object_model_id, $object_id, $formId, $sort = SORT_ASC)
     {
-        $cacheKey = 'Reviews: ' . (int)$object_model_id . ':' . (int)$formId . ':' . (int)$sort;
+        $cacheKey = implode(':', ['Reviews', $object_id, $object_model_id, $formId, $sort]);
         $models = Yii::$app->cache->get($cacheKey);
         if (false === $models) {
             $models = Review::find()
@@ -162,7 +152,7 @@ class Review extends \yii\db\ActiveRecord
                     ]
                 )
                 ->all();
-            if (false!== empty($models)) {
+            if (!empty($models)) {
                 Yii::$app->cache->set(
                     $cacheKey,
                     $models,
@@ -179,14 +169,12 @@ class Review extends \yii\db\ActiveRecord
         }
         return $models;
     }
-
     /**
      * @inheritdoc
      */
     public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert, $changedAttributes);
-
         if (true === $insert) {
             if (0 === $this->root_id) {
                 if (0 === $this->parent_id) {
@@ -198,7 +186,6 @@ class Review extends \yii\db\ActiveRecord
             }
         }
     }
-
     /**
      * @inheritdoc
      */
@@ -207,15 +194,12 @@ class Review extends \yii\db\ActiveRecord
         if (false === parent::beforeDelete()) {
             return false;
         }
-
         foreach ($this->children as $child) {
             /** @var Review $child */
             $child->delete();
         }
-
         return true;
     }
-
     /**
      * @return ActiveRecord|null
      */
@@ -232,7 +216,6 @@ class Review extends \yii\db\ActiveRecord
         $this->targetObjectModel = $class::findOne(['id' => $this->object_model_id]);
         return $this->targetObjectModel;
     }
-
     /**
      * @return Object|null
      */
@@ -243,7 +226,6 @@ class Review extends \yii\db\ActiveRecord
         }
         return $this->targetObject;
     }
-
     /**
      * @return ActiveQuery
      */
@@ -251,7 +233,6 @@ class Review extends \yii\db\ActiveRecord
     {
         return $this->hasMany(static::className(), ['parent_id' => 'id']);
     }
-
     /**
      * @return ActiveQuery
      */
