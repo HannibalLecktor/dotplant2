@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "devgroup/dotplant": "0.0.1",
+        "devgroup/dotplant": "~0.0.1",
         "symfony/var-dumper": "^3.0",
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-widget-colorinput": "*",
@@ -27,7 +27,13 @@
         ]
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
     },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {
@@ -50,10 +56,6 @@
                     "visitors-uploaded": "0777"
                 }
             ]
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
         }
     }
 }
