@@ -21,5 +21,6 @@ $config = require(__DIR__ . '/../config/web.php');
 \Yii::$classMap['app\modules\shop\controllers\ProductController'] = '@app/web/theme/module/modules/shop/controllers/ProductController.php';
 \Yii::$classMap['app\modules\user\models\LoginForm'] = '@app/web/theme/module/modules/user/models/LoginForm.php';
 \Yii::$classMap['app\modules\user\controllers\UserController'] = '@app/web/theme/module/modules/user/controllers/UserController.php';
+\Yii::$classMap['app\backend\assets\BackendAsset'] = '@app/web/theme/module/backend/assets/BackendFixAsset.php';
 
 (new yii\web\Application($config))->run();
