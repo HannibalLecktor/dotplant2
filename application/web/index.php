@@ -15,6 +15,7 @@ $config = require(__DIR__ . '/../config/web.php');
 \Yii::$classMap['app\modules\shop\helpers\PriceHelper'] = '@app/web/theme/module/modules/shop/helpers/PriceHelper.php';
 \Yii::$classMap['app\modules\shop\models\PaymentType'] = '@app/web/theme/module/modules/shop/models/PaymentType.php';
 \Yii::$classMap['app\modules\shop\models\Product'] = '@app/web/theme/module/modules/shop/models/Product.php';
+\Yii::$classMap['app\modules\shop\models\Category'] = '@app/web/theme/module/modules/shop/models/Category.php';
 \Yii::$classMap['app\modules\shop\models\ConfigConfigurationModel'] = '@app/web/theme/module/modules/shop/models/ConfigConfigurationModel.php';
 \Yii::$classMap['app\modules\shop\models\Order'] = '@app/web/theme/module/modules/shop/models/Order.php';
 \Yii::$classMap['app\modules\shop\controllers\CartController'] = '@app/web/theme/module/modules/shop/controllers/CartController.php';

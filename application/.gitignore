@@ -6,6 +6,5 @@ web/theme/*
 web/favicon.ico
 modules/seo/redirects/redirectsArray.php
 jolici.phar
-composer.lock
 installed.mark
 vendor
