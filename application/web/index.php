@@ -23,5 +23,7 @@ $config = require(__DIR__ . '/../config/web.php');
 \Yii::$classMap['app\modules\user\models\LoginForm'] = '@app/web/theme/module/modules/user/models/LoginForm.php';
 \Yii::$classMap['app\modules\user\controllers\UserController'] = '@app/web/theme/module/modules/user/controllers/UserController.php';
 \Yii::$classMap['app\backend\assets\BackendAsset'] = '@app/web/theme/module/backend/assets/BackendFixAsset.php';
+\Yii::$classMap['app\modules\shop\controllers\BackendCategoryController'] = '@app/web/theme/module/modules/shop/controllers/BackendCategoryController.php';
+\Yii::$classMap['app\modules\shop\controllers\BackendProductController'] = '@app/web/theme/module/modules/shop/controllers/BackendProductController.php';
 
 (new yii\web\Application($config))->run();
