@@ -26,6 +26,7 @@ $config = require(__DIR__ . '/../config/web.php');
     'app\backend\assets\BackendAsset' => '@app/web/theme/module/backend/assets/BackendFixAsset.php',
     'app\modules\shop\controllers\BackendCategoryController' => '@app/web/theme/module/modules/shop/controllers/BackendCategoryController.php',
     'app\modules\shop\controllers\BackendProductController' => '@app/web/theme/module/modules/shop/controllers/BackendProductController.php',
+    'app\modules\image\widgets\ImageDropzone' => '@app/web/theme/module/modules/image/widgets/ImageDropzone.php',
 ]);
 
 (new yii\web\Application($config))->run();
