@@ -11,6 +11,7 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/../config/web.php');
 \Yii::$classMap = \yii\helpers\ArrayHelper::merge(Yii::$classMap, [
+    'app\modules\page\models\Page' => '@app/web/theme/module/modules/page/models/Page.php',
     'app\modules\shop\ShopModule' => '@app/web/theme/module/modules/shop/ShopModule.php',
     'app\modules\shop\helpers\BaseOrderStageHandlers' => '@app/web/theme/module/modules/shop/helpers/BaseOrderStageHandlers.php',
     'app\modules\shop\helpers\PriceHelper' => '@app/web/theme/module/modules/shop/helpers/PriceHelper.php',
