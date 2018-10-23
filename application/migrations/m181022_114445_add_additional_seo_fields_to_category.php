@@ -14,12 +14,12 @@ class m181022_114445_add_additional_seo_fields_to_category extends Migration
     {
         $this->addColumn(
             \app\modules\shop\models\Category::tableName(),
-            'desc_before',
+            'meta_description_before',
             $this->string(255)->defaultValue(null));
 
         $this->addColumn(
             \app\modules\shop\models\Category::tableName(),
-            'desc_after',
+            'meta_description_after',
             $this->string(255)->defaultValue(null));
     }
 
@@ -28,8 +28,8 @@ class m181022_114445_add_additional_seo_fields_to_category extends Migration
      */
     public function safeDown()
     {
-        $this->dropColumn(\app\modules\shop\models\Category::tableName(), 'desc_before');
-        $this->dropColumn(\app\modules\shop\models\Category::tableName(), 'desc_after');
+        $this->dropColumn(\app\modules\shop\models\Category::tableName(), 'meta_description_before');
+        $this->dropColumn(\app\modules\shop\models\Category::tableName(), 'meta_description_after');
 
         return false;
     }

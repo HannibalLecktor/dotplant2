@@ -19,7 +19,8 @@
         "himiklab/yii2-easy-thumbnail-image-helper": "*"
     },
     "require-dev": {
-        "devgroup/dotplant-dev": "0.0.1"
+        "devgroup/dotplant-dev": "0.0.1",
+        "codeception/codeception": "^2.5"
     },
     "scripts": {
         "post-install-cmd": [
