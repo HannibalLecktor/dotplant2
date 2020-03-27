@@ -2,7 +2,7 @@
 
 namespace app\traits;
 
-use app\models\Object;
+use app\models\Objects;
 use app\models\DynamicContent;
 use devgroup\TagDependencyHelper\ActiveRecordHelper;
 use Yii;
@@ -107,7 +107,7 @@ trait DynamicContentTrait
                     [
                         'tags' => [
                             ActiveRecordHelper::getCommonTag(DynamicContent::className()),
-                            ActiveRecordHelper::getObjectTag(Object::className(), $object_id),
+                            ActiveRecordHelper::getObjectTag(Objects::className(), $object_id),
                             $route,
                         ]
                     ]

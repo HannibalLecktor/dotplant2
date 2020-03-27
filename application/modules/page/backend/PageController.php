@@ -4,7 +4,7 @@ namespace app\modules\page\backend;
 
 use app\backend\actions\PropertyHandler;
 use app\backend\events\BackendEntityEditEvent;
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectPropertyGroup;
 use app\models\Property;
 use app\modules\image\models\Image;
@@ -111,7 +111,7 @@ class PageController extends \app\backend\components\BackendController
 
     public function actionEdit($parent_id, $id = null)
     {
-        $object = Object::getForClass(Page::className());
+        $object = Objects::getForClass(Page::className());
 
         /** @var null|Page|HasProperties $model */
         $model = new Page;
@@ -279,7 +279,7 @@ class PageController extends \app\backend\components\BackendController
             $newModel->slug = substr(uniqid() . "-" . $model->slug, 0, 80);
         }
         if ($newModel->save()) {
-            $object = Object::getForClass(get_class($newModel));
+            $object = Objects::getForClass(get_class($newModel));
             $query = new Query();
 
             // save images bindings

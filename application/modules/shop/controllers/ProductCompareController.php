@@ -2,7 +2,7 @@
 
 namespace app\modules\shop\controllers;
 
-use app\models\Object;
+use app\models\Objects;
 use app\modules\core\behaviors\DisableRobotIndexBehavior;
 use app\modules\shop\helpers\ProductCompareHelper;
 use app\modules\shop\models\Product;
@@ -52,7 +52,7 @@ class ProductCompareController extends Controller
     public function actionCompare()
     {
         $products = ProductCompareHelper::getProductsList(true);
-        $object = Object::getForClass(Product::className());
+        $object = Objects::getForClass(Product::className());
         return $this->render(
             'compare',
             [
@@ -71,7 +71,7 @@ class ProductCompareController extends Controller
     {
         $this->layout = 'print';
         $products = ProductCompareHelper::getProductsList(true);
-        $object = Object::getForClass(Product::className());
+        $object = Objects::getForClass(Product::className());
         return $this->render(
             'print',
             [

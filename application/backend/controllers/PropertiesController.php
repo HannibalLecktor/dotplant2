@@ -4,7 +4,7 @@ namespace app\backend\controllers;
 
 use app\components\Helper;
 use app\models\Form;
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectStaticValues;
 use app\models\Property;
 use app\models\PropertyGroup;
@@ -142,7 +142,7 @@ class PropertiesController extends Controller
         } else {
             $model = Property::findById($id);
         }
-        $object = Object::getForClass(Property::className());
+        $object = Objects::getForClass(Property::className());
         $model->property_group_id = $property_group_id;
 
         if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
@@ -150,12 +150,12 @@ class PropertiesController extends Controller
             if (!$propertyHandler->changePropertyType($model)) {
                 if ($model->is_column_type_stored) {
                     if ($model->isNewRecord) {
-                        $object = Object::findById($model->group->object_id);
+                        $object = Objects::findById($model->group->object_id);
                         Yii::$app->db->createCommand()
                             ->addColumn($object->column_properties_table_name, $model->key, "TINYTEXT")
                             ->execute();
                         if ($object->object_class == Form::className()) {
-                            $submissionObject = Object::getForClass(Submission::className());
+                            $submissionObject = Objects::getForClass(Submission::className());
                             $col_type = $this->getColumnType($model->value_type);
                             Yii::$app->db->createCommand()
                                 ->addColumn($submissionObject->column_properties_table_name, $model->key, $col_type)
@@ -163,7 +163,7 @@ class PropertiesController extends Controller
                         }
                     } else {
                         if ($model->key != $model->getOldAttribute('key')) {
-                            $object = Object::findById($model->group->object_id);
+                            $object = Objects::findById($model->group->object_id);
                             Yii::$app->db->createCommand()
                                 ->renameColumn(
                                     $object->column_properties_table_name,
@@ -171,7 +171,7 @@ class PropertiesController extends Controller
                                     $model->key
                                 )->execute();
                             if ($object->object_class == Form::className()) {
-                                $submissionObject = Object::getForClass(Submission::className());
+                                $submissionObject = Objects::getForClass(Submission::className());
                                 Yii::$app->db->createCommand()
                                     ->renameColumn(
                                         $submissionObject->column_properties_table_name,
@@ -181,7 +181,7 @@ class PropertiesController extends Controller
                             }
                         }
                         if ($model->value_type != $model->getOldAttribute('value_type')) {
-                            $object = Object::findById($model->group->object_id);
+                            $object = Objects::findById($model->group->object_id);
                             $new_type = $this->getColumnType($model->value_type);
                             Yii::$app->db->createCommand()
                                 ->alterColumn(
@@ -190,7 +190,7 @@ class PropertiesController extends Controller
                                     $new_type
                                 )->execute();
                             if ($object->object_class == Form::className()) {
-                                $submissionObject = Object::getForClass(Submission::className());
+                                $submissionObject = Objects::getForClass(Submission::className());
                                 Yii::$app->db->createCommand()
                                     ->renameColumn(
                                         $submissionObject->column_properties_table_name,
@@ -266,7 +266,7 @@ class PropertiesController extends Controller
         } else {
             $model = PropertyStaticValues::findOne($id);
         }
-        $object = Object::getForClass(PropertyStaticValues::className());
+        $object = Objects::getForClass(PropertyStaticValues::className());
         $model->property_id = $property_id;
         $post = \Yii::$app->request->post();
         if ($model->load($post) && $model->validate()) {
@@ -357,9 +357,9 @@ class PropertiesController extends Controller
                         'property_static_value_id' => $model->id,
                     ];
                     $objectStaticValues->save();
-                    $tags[] = ActiveRecordHelper::getCommonTag(Object::findById($objectId)->object_class);
+                    $tags[] = ActiveRecordHelper::getCommonTag(Objects::findById($objectId)->object_class);
                     $tags[] = ActiveRecordHelper::getObjectTag(
-                        Object::findById($objectId)->object_class,
+                        Objects::findById($objectId)->object_class,
                         $objectModelId
                     );
                 }

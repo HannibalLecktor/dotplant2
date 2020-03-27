@@ -1,6 +1,6 @@
 <?php
 namespace app\modules\review\models;
-use app\models\Object;
+use app\models\Objects;
 use devgroup\TagDependencyHelper\ActiveRecordHelper;
 use Yii;
 use app\models\Submission;
@@ -222,7 +222,7 @@ class Review extends \yii\db\ActiveRecord
     public function getTargetObject()
     {
         if ($this->targetObject === null) {
-            $this->targetObject = Object::findById($this->object_id);
+            $this->targetObject = Objects::findById($this->object_id);
         }
         return $this->targetObject;
     }

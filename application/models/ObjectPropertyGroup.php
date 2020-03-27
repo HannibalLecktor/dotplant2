@@ -50,8 +50,8 @@ class ObjectPropertyGroup extends ActiveRecord
 
     public static function getForModel($model)
     {
-        /** @var Object $object */
-        $object = Object::getForClass(get_class($model));
+        /** @var Objects $object */
+        $object = Objects::getForClass(get_class($model));
         return ObjectPropertyGroup::find()
             ->joinWith('group')
             ->where(

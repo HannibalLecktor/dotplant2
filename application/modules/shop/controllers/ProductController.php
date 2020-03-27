@@ -11,7 +11,7 @@ use app\models\PropertyStaticValues;
 use app\modules\core\helpers\EventTriggeringHelper;
 use app\modules\shop\events\ProductPageShowed;
 use app\modules\shop\models\Category;
-use app\models\Object;
+use app\models\Objects;
 use app\modules\shop\models\Product;
 use app\models\Search;
 use app\traits\DynamicContentTrait;
@@ -48,7 +48,7 @@ class ProductController extends Controller
             throw new NotFoundHttpException;
         }
 
-        if (null === $object = Object::getForClass(Product::className())) {
+        if (null === $object = Objects::getForClass(Product::className())) {
             throw new ServerErrorHttpException('Object not found.');
         }
 
@@ -237,7 +237,7 @@ class ProductController extends Controller
      */
     public function actionShow($model_id = null)
     {
-        if (null === $object = Object::getForClass(Product::className())) {
+        if (null === $object = Objects::getForClass(Product::className())) {
             throw new ServerErrorHttpException('Object not found.');
         }
 

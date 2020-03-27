@@ -2,7 +2,7 @@
 
 namespace app\widgets;
 
-use app\models\Object;
+use app\models\Objects;
 use app\modules\shop\models\Category;
 use devgroup\TagDependencyHelper\ActiveRecordHelper;
 use Yii;
@@ -36,7 +36,7 @@ class FilteredCategoriesWidget extends PlainCategoriesWidget
             $query->limit($this->limit);
         }
 
-        $object = Object::getForClass(Category::className());
+        $object = Objects::getForClass(Category::className());
 
         \app\properties\PropertiesHelper::appendPropertiesFilters(
             $object,

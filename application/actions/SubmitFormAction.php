@@ -5,7 +5,7 @@ namespace app\actions;
 use Yii;
 use app\behaviors\spamchecker\SpamCheckerBehavior;
 use app\models\Form;
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectPropertyGroup;
 use app\models\Property;
 use app\models\SpamChecker;
@@ -43,8 +43,8 @@ class SubmitFormAction extends Action
             return ActiveForm::validate($model);
         }
 
-        /** @var \app\models\Object $object */
-        $object = Object::getForClass(Form::className());
+        /** @var \app\models\Objects $object */
+        $object = Objects::getForClass(Form::className());
         $propGroups = ObjectPropertyGroup::find()->where(
             [
                 'and',

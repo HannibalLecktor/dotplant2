@@ -2,7 +2,7 @@
 
 namespace app\widgets\filter;
 
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectStaticValues;
 use app\models\Property;
 use app\models\PropertyGroup;
@@ -86,7 +86,7 @@ class FilterWidget extends Widget
         ];
         if ($this->onlyAvailableFilters) {
             Yii::beginProfile("onlyAvailableFilters");
-            $object = Object::findById($this->objectId);
+            $object = Objects::findById($this->objectId);
             if (!is_null($object) && isset($this->currentSelections['last_category_id'])) {
 
                 $cacheKey = 'FilterWidget: ' . $object->id . ':' . $this->currentSelections['last_category_id'] . ':'

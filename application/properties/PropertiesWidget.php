@@ -2,7 +2,7 @@
 
 namespace app\properties;
 
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectPropertyGroup;
 use app\models\Property;
 use app\models\PropertyGroup;
@@ -40,7 +40,7 @@ class PropertiesWidget extends Widget
      */
     public function run()
     {
-        $this->object = Object::getForClass(get_class($this->model));
+        $this->object = Objects::getForClass(get_class($this->model));
         $cacheKey = 'PropertiesWidget: ' . get_class($this->model) . ':' . $this->model->id;
         $data = Yii::$app->cache->get($cacheKey);
         if ($data === false) {

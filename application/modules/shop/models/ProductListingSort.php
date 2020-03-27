@@ -4,6 +4,7 @@ namespace app\modules\shop\models;
 
 use Yii;
 use yii\caching\TagDependency;
+use yii\data\Sort;
 
 /**
  * This is the model class for table "{{%product_listing_sort}}".

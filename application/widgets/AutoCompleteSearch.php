@@ -2,6 +2,7 @@
 
 namespace app\widgets;
 
+use kartik\typeahead\Typeahead;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
@@ -14,7 +15,7 @@ use yii\web\JsExpression;
  * Example:
  *
  */
-class AutoCompleteSearch extends \kartik\widgets\Typeahead
+class AutoCompleteSearch extends Typeahead
 {
     /**
      * @var string|array the route to search action

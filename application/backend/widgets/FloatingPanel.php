@@ -49,7 +49,7 @@ class FloatingPanel extends Widget
                                     'DynamicContent' => [
                                         'apply_if_params' => Json::encode($apply_if_params),
                                         'apply_if_last_category_id' => $_GET['last_category_id'],
-                                        'object_id' => app\models\Object::getForClass(app\modules\shop\models\Product::className())->id,
+                                        'object_id' => app\models\Objects::getForClass(app\modules\shop\models\Product::className())->id,
                                         'route' => 'shop/product/list',
                                     ]
                                 ],

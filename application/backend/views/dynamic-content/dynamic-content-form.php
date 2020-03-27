@@ -58,7 +58,7 @@ $this->registerJs('
             <?php BackendWidget::begin(
                 ['title' => Yii::t('app', 'Dynamic Content'), 'icon' => 'cogs', 'footer' => $this->blocks['submit']]
             ); ?>
-            <?=$form->field($model, 'object_id')->dropDownList(app\models\Object::getSelectArray())?>
+            <?=$form->field($model, 'object_id')->dropDownList(app\models\Objects::getSelectArray())?>
             <?=$form->field($model, 'route')?>
             <?=$form->field($model, 'name')?>
             <?=$form->field($model, 'title')?>

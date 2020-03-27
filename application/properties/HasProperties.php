@@ -2,7 +2,7 @@
 
 namespace app\properties;
 
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectPropertyGroup;
 use app\models\ObjectStaticValues;
 use app\models\Property;
@@ -66,7 +66,7 @@ class HasProperties extends Behavior
     public function getObject()
     {
         if ($this->object === null) {
-            $this->object = Object::getForClass(get_class($this->owner));
+            $this->object = Objects::getForClass(get_class($this->owner));
             if ($this->object === null) {
                 throw new \Exception("Can't find Object row for ".get_class($this->owner));
             }

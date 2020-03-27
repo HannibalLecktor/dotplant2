@@ -52,7 +52,7 @@ if (true === isset ($yml_settings['relations_map']['getImage'])) {
     $yml_settings['relations_map']['getImage']['fields']['file'] = Yii::t('app', 'File');
     $yml_settings['relations_map']['getImage']['html'] .= '<option value="file">'.Yii::t('app', 'File').'</option>';
 }
-$prop_group = \app\models\Object::getForClass(\app\modules\shop\models\Product::className())->id;
+$prop_group = \app\models\Objects::getForClass(\app\modules\shop\models\Product::className())->id;
 $provider = (new \yii\db\Query())
     ->select(['pg.name as pgname', 'p.name', 'p.id', 'p.handler_additional_params'])
     ->from(\app\models\Property::tableName().' as p', \app\models\PropertyGroup::tableName().'as pg')

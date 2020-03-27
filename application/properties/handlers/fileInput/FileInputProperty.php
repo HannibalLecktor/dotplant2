@@ -92,7 +92,7 @@ class FileInputProperty extends \app\properties\handlers\AbstractHandler
         $modelObject = new $params['model_name']();
         $modelId = $params['model_id'];
 
-        /** @var \app\models\Object $object */
+        /** @var \app\models\Objects $object */
         $object = $params['object_id'];
 
         AbstractPropertyEavModel::setTableName($object->eav_table_name);
@@ -132,7 +132,7 @@ class FileInputProperty extends \app\properties\handlers\AbstractHandler
         $modelObject = new $params['model_name']();
         $modelId = $params['model_id'];
 
-        /** @var \app\models\Object $object */
+        /** @var \app\models\Objects $object */
         $object = $params['object_id'];
 
         $formProperties = 'Properties_'. $modelObject->formName() .'_'. $modelId;

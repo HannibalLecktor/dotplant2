@@ -2,7 +2,7 @@
 
 namespace app\modules\review\controllers;
 
-use app\models\Object;
+use app\models\Objects;
 use app\modules\page\models\Page;
 use app\modules\review\models\Review;
 use app\modules\shop\models\Category;
@@ -248,7 +248,7 @@ class BackendReviewController extends \app\backend\components\BackendController
             'results' => []
         ];
 
-        if (null === $object = Object::findById($object)) {
+        if (null === $object = Objects::findById($object)) {
             return $result;
         }
 

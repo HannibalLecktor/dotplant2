@@ -3,7 +3,7 @@
 namespace app\modules\shop\controllers;
 
 use app\backend\components\BackendController;
-use app\models\Object;
+use app\models\Objects;
 use app\models\PrefilteredPages;
 use app\modules\shop\models\Product;
 use app\models\Property;
@@ -59,7 +59,7 @@ class BackendPrefilteredPagesController extends BackendController
 
         $property_groups_ids_for_object = (new Query)->select('id')->from(PropertyGroup::tableName())->where(
                 [
-                    'object_id' => Object::getForClass(Product::className())->id,
+                    'object_id' => Objects::getForClass(Product::className())->id,
                 ]
             )->column();
 

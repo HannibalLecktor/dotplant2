@@ -14,6 +14,10 @@ $config = [
         'shop',
         'DefaultTheme',
     ],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'defaultRoute' => 'default',
     'modules' => [
         'user' => [
@@ -112,7 +116,7 @@ $config = [
             'class' => 'yii\web\AssetManager',
             'bundles' => require(__DIR__ . '/' . (!YII_DEBUG ? 'assets-prod.php' : 'assets-dev.php')),
             'linkAssets' => YII_DEBUG && !stristr(PHP_OS, 'WIN'),
-            'forceCopy' => true
+            'forceCopy' => false
         ],
         'user' => [
             'class' => '\yii\web\User',
@@ -208,6 +212,7 @@ if (YII_DEBUG) {
     $allConfig['bootstrap'][] = 'debug';
     $allConfig['modules']['debug'] = [
         'class' => 'yii\debug\Module',
+        'allowedIPs' => ['109.191.221.208'],
         'panels' => [
         ],
     ];

@@ -3,7 +3,7 @@
 namespace app\properties;
 
 
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectStaticValues;
 use app\models\Property;
 use Yii;

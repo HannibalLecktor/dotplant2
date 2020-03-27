@@ -5,7 +5,7 @@ namespace app\modules\shop\models;
 use app\behaviors\CleanRelations;
 use app\behaviors\Tree;
 use app\components\Helper;
-use app\models\Object;
+use app\models\Objects;
 use app\modules\shop\models\FilterSets;
 use app\properties\HasProperties;
 use app\traits\GetImages;
@@ -545,7 +545,7 @@ class Category extends ActiveRecord implements \JsonSerializable
         if (!parent::beforeDelete()) {
             return false;
         }
-        $productObject = Object::getForClass(Product::className());
+        $productObject = Objects::getForClass(Product::className());
         switch ($this->deleteMode) {
             case self::DELETE_MODE_ALL:
                 $products =

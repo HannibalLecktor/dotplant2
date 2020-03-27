@@ -4,7 +4,7 @@ namespace app\modules\shop\backend;
 
 use app\backend\components\BackendController;
 use app\modules\shop\models\Category;
-use app\models\Object;
+use app\models\Objects;
 use app\modules\shop\models\Product;
 use app\models\Property;
 use app\models\PropertyGroup;
@@ -84,7 +84,7 @@ class FilterSetsController extends BackendController
             }
         }
 
-        $groups = PropertyGroup::getForObjectId(Object::getForClass(Product::className())->id, false);
+        $groups = PropertyGroup::getForObjectId(Objects::getForClass(Product::className())->id, false);
         $propertiesDropdownItems = [];
         foreach ($groups as $group) {
             $item = [

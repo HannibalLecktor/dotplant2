@@ -18,7 +18,7 @@ use app\models\ErrorLog;
 use app\models\ErrorUrl;
 use app\models\Form;
 use app\models\Layout;
-use app\models\Object;
+use app\models\Objects;
 use app\models\ObjectPropertyGroup;
 use app\models\ObjectStaticValues;
 use app\models\PrefilteredPages;
@@ -191,7 +191,7 @@ class m150531_084444_new_init extends Migration
             $tableOptions
         );
         $this->createTable(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'id' => 'INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT',
                 'name' => 'VARCHAR(255) NOT NULL',
@@ -2000,7 +2000,7 @@ class m150531_084444_new_init extends Migration
         );
         //
         $this->batchInsert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name',
                 'object_class',
@@ -2038,7 +2038,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->insert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name' => 'Product',
                 'object_class' => Product::className(),
@@ -2429,7 +2429,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->insert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name' => 'Order',
                 'object_class' => Order::className(),
@@ -2462,7 +2462,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->batchInsert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name',
                 'object_class',
@@ -2500,7 +2500,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->insert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name' => 'User',
                 'object_class' => User::className(),
@@ -2882,7 +2882,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->batchInsert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name',
                 'object_class',
@@ -3095,28 +3095,28 @@ class m150531_084444_new_init extends Migration
             ],
             [
                 [
-                    \app\models\Object::getForClass(\app\modules\shop\models\Product::className())->id,
+                    \app\models\Objects::getForClass(\app\modules\shop\models\Product::className())->id,
                     'app\modules\shop\helpers\PriceHandlers',
                     5,
                     'core',
                     'getCurrencyPriceProduct',
                 ],
                 [
-                    \app\models\Object::getForClass(\app\modules\shop\models\Order::className())->id,
+                    \app\models\Objects::getForClass(\app\modules\shop\models\Order::className())->id,
                     'app\modules\shop\helpers\PriceHandlers',
                     10,
                     'delivery',
                     'getDeliveryPriceOrder',
                 ],
                 [
-                    \app\models\Object::getForClass(\app\modules\shop\models\Product::className())->id,
+                    \app\models\Objects::getForClass(\app\modules\shop\models\Product::className())->id,
                     'app\modules\shop\helpers\PriceHandlers',
                     15,
                     'discount',
                     'getDiscountPriceProduct',
                 ],
                 [
-                    \app\models\Object::getForClass(\app\modules\shop\models\Order::className())->id,
+                    \app\models\Objects::getForClass(\app\modules\shop\models\Order::className())->id,
                     'app\modules\shop\helpers\PriceHandlers',
                     20,
                     'discount',
@@ -3126,7 +3126,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->insert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name' => 'Customer',
                 'object_class' => 'app\modules\shop\models\Customer',
@@ -3140,7 +3140,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->insert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name' => 'Contragent',
                 'object_class' => 'app\modules\shop\models\Contragent',
@@ -3154,7 +3154,7 @@ class m150531_084444_new_init extends Migration
             ]
         );
         $this->insert(
-            Object::tableName(),
+            Objects::tableName(),
             [
                 'name' => 'OrderDeliveryInformation',
                 'object_class' => 'app\modules\shop\models\OrderDeliveryInformation',

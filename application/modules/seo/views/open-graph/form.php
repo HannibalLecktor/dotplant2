@@ -4,7 +4,7 @@ $form = \app\backend\components\ActiveForm::begin();
 
 echo \app\backend\widgets\DataRelationsWidget::widget([
     'fields' => $openGraphFields,
-    'object' => \app\models\Object::getForClass(\app\modules\shop\models\Product::className()),
+    'object' => \app\models\Objects::getForClass(\app\modules\shop\models\Product::className()),
     'data' => json_decode($model->relation_data),
     'relations' => $relationLinks
 ]);

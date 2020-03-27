@@ -2,7 +2,7 @@
 
 namespace app\modules\shop\widgets;
 
-use app\models\Object;
+use app\models\Objects;
 use app\models\Property;
 use app\models\PropertyGroup;
 use kartik\helpers\Html;
@@ -52,7 +52,7 @@ class OptionGenerate extends Widget
             );
         }
 
-        $this->object = Object::getForClass(get_class($this->model));
+        $this->object = Objects::getForClass(get_class($this->model));
 
         $rest_pg = (new Query())
             ->select('id, name')

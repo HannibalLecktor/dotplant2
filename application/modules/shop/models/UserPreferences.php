@@ -32,7 +32,8 @@ class UserPreferences extends Model {
         return [
             [['productListingSortId'], 'integer'],
 
-            ['productListingSortId', 'default', 'value' => 1,],
+            //@todo need add to repo
+            ['productListingSortId', 'default', 'value' => 9,],
             [
                 'productListingSortId',
                 'in',

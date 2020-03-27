@@ -2,7 +2,7 @@
 
 namespace app\properties;
 
-use app\models\Object;
+use app\models\Objects;
 use devgroup\TagDependencyHelper\ActiveRecordHelper;
 use yii\behaviors\AttributeBehavior;
 use yii\db\ActiveRecord;
@@ -117,7 +117,7 @@ class AbstractPropertyEavModel extends ActiveRecord
         $className = null;
         if (!isset(static::$objectClassMap[static::$tableName])) {
             /** @var Object $object */
-            if (null !== $object = Object::findOne(['eav_table_name' => static::$tableName])) {
+            if (null !== $object = Objects::findOne(['eav_table_name' => static::$tableName])) {
                 static::$objectClassMap[static::$tableName] = $object->object_class;
                 $className = static::$objectClassMap[static::$tableName];
             }

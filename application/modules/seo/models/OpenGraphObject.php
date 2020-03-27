@@ -2,7 +2,7 @@
 
 namespace app\modules\seo\models;
 
-use app\models\Object;
+use app\models\Objects;
 use Yii;
 
 /**
@@ -28,7 +28,7 @@ class OpenGraphObject extends \yii\db\ActiveRecord
 
     public function getObject()
     {
-        return $this->hasOne(Object::className(), ['id'=>'object_id']);
+        return $this->hasOne(Objects::className(), ['id'=>'object_id']);
     }
 
     /**
