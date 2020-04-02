@@ -97,8 +97,8 @@ Html::submitButton(
             ?>
             <?= $form->field($model, 'logo')->textInput(['maxlength' => 255]) ?>
             <?= $form->field($model, 'commission')->textInput() ?>
-            <?= $form->field($model, 'active')->widget(\kartik\widgets\SwitchInput::className()) ?>
-            <?= $form->field($model, 'payment_available')->widget(\kartik\widgets\SwitchInput::className()) ?>
+            <?= $form->field($model, 'active')->widget(\kartik\switchinput\SwitchInput::className()) ?>
+            <?= $form->field($model, 'payment_available')->widget(\kartik\switchinput\SwitchInput::className()) ?>
             <?= $form->field($model, 'sort')->textInput() ?>
         <?php BackendWidget::end(); ?>
     <?php ActiveForm::end(); ?>

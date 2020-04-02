@@ -45,7 +45,9 @@ class PageRule implements UrlRuleInterface
         if ($request->port != 80 || $request->port != 8080) {
             $serverName .= ":" . $request->port;
         }
-        
+
+        /*dump($serverName);
+        dump(Yii::$app->getModule('core'));die();*/
         if ($serverName == Yii::$app->getModule('core')->serverName) {
             $_path = $request->getPathInfo();
         } else {

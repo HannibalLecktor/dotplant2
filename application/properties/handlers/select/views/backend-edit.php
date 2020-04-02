@@ -24,7 +24,6 @@ jQuery('body').on('click', '[data-action="add-new-static-value"]', function() {
             \$modal.modal('show');
         }
     });
-    console.log(value);
     return false;
 });
 JS;
@@ -61,7 +60,7 @@ $this->registerJs($js, \yii\web\View::POS_READY, 'select2-add-static-value');
         );
         ?>
         <?=
-            kartik\widgets\Select2::widget(
+            \kartik\select2\Select2::widget(
                 [
                     'name' => \yii\helpers\Html::getInputName($model, $property_key),
                     'data' => ['' => ''] + app\models\PropertyStaticValues::getSelectForPropertyId($property_id),

@@ -4,9 +4,6 @@ use app\backend\widgets\BackendWidget;
 use app\backend\components\ActiveForm;
 use kartik\helpers\Html;
 use kartik\icons\Icon;
-use kartik\widgets\DateTimePicker;
-use vova07\imperavi\Widget as ImperaviWidget;
-use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\shop\models\Discount */

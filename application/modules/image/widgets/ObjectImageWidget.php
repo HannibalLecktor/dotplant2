@@ -62,8 +62,8 @@ class ObjectImageWidget extends Widget
         $cacheKey = static::className() . ':' . implode(
                 "_",
                 [
-                    $this->model->object->id,
-                    $this->model->id,
+                    $this->model? $this->model->object->id : "",
+                    $this->model? $this->model->id : "",
                     $this->viewFile,
                     $this->limit,
                     $this->offset,
@@ -76,9 +76,9 @@ class ObjectImageWidget extends Widget
         $result = Yii::$app->cache->get($cacheKey);
         if ($result === false) {
             if ($this->offset > 0 || !is_null($this->limit)) {
-                $images = $this->model->getImages()->limit($this->limit)->offset($this->offset)->all();
+                $images = $this->model? $this->model->getImages()->limit($this->limit)->offset($this->offset)->all() : [];
             } else {
-                $images = $this->model->images;
+                $images = $this->model? $this->model->images : [];
             }
             if ($this->noImageOnEmptyImages === true && count($images) === 0) {
                 return $this->render(
@@ -113,7 +113,7 @@ class ObjectImageWidget extends Widget
                     [
                         'tags' => [
                             ActiveRecordHelper::getCommonTag(Image::className()),
-                            ActiveRecordHelper::getCommonTag($this->model->className()),
+                            ActiveRecordHelper::getCommonTag($this->model? $this->model->className() : ""),
                         ]
                     ]
                 )

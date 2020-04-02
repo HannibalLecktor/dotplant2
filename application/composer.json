@@ -56,7 +56,8 @@
         "knplabs/packagist-api": "1.*@dev",
         "kartik-v/yii2-dropdown-x": "~1.2.0",
         "leafo/scssphp": "dev-master",
-        "bower-asset/jquery": "~2.2"
+        "bower-asset/jquery": "~2.2",
+        "symfony/var-dumper": "^5.1@dev"
     },
     "require-dev": {
         "devgroup/dotplant-dev": "0.0.1"

@@ -5,7 +5,7 @@
 
 use app\backend\controllers\DynamicContentController;
 use app\backend\widgets\BackendWidget;
-use kartik\widgets\Select2;
+use kartik\select2\Select2;
 use kartik\helpers\Html;
 use kartik\icons\Icon;
 use app\backend\components\ActiveForm;

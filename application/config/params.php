@@ -10,7 +10,7 @@ $params = [
         \yii\rbac\Item::TYPE_ROLE => 'Role',
     ],
     'currency' => '<del>Р</del>',
-    'hostInfo' => 'www.terra-gsm.ru'
+    'hostInfo' => 'localhost'
 ];
 
 return ArrayHelper::merge(

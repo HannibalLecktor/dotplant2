@@ -212,7 +212,7 @@ if (YII_DEBUG) {
     $allConfig['bootstrap'][] = 'debug';
     $allConfig['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        'allowedIPs' => ['109.191.221.208'],
+        'allowedIPs' => ['*'],
         'panels' => [
         ],
     ];
