@@ -25,7 +25,7 @@ class RegistrationForm extends Model
         return [
             [['username', 'email', 'password', 'confirmPassword'], 'required'],
             ['email', 'email', 'checkDNS' => true],
-            ['password', 'string', 'min' => 8],
+            ['password', 'string', 'min' => Yii::$app->params['passwordLength']],
             ['confirmPassword', 'compare', 'compareAttribute' => 'password'],
         ];
     }

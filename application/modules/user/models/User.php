@@ -65,12 +65,12 @@ class User extends ActiveRecord implements IdentityInterface
             ['email', 'exist', 'message' => Yii::t('app', 'There is no user with such email.'), 'on' => 'requestPasswordResetToken'],
 
             ['password', 'required', 'on' => ['adminSignup', 'changePassword']],
-            ['password', 'string', 'min' => 8],
+            ['password', 'string', 'min' => Yii::$app->params['passwordLength']],
             [['first_name', 'last_name',], 'string', 'max' => 255],
 
             // change password
             [['newPassword', 'confirmPassword'], 'required'],
-            [['newPassword', 'confirmPassword'], 'string', 'min' => 8],
+            [['newPassword', 'confirmPassword'], 'string', 'min' => Yii::$app->params['passwordLength']],
             [['confirmPassword'], 'compare', 'compareAttribute' => 'newPassword'],
         ];
     }
