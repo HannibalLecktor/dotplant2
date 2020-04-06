@@ -30,6 +30,8 @@ $config = require(__DIR__ . '/../config/web.php');
     'app\modules\shop\controllers\BackendProductController' => '@app/web/theme/module/modules/shop/controllers/BackendProductController.php',
     'app\modules\image\widgets\ImageDropzone' => '@app/web/theme/module/modules/image/widgets/ImageDropzone.php',
     'app\modules\image\models\ThumbnailWatermark' => '@app/web/theme/module/modules/image/models/ThumbnailWatermark.php',
+    'app\modules\shop\controllers\OrdersController' => '@app/web/theme/module/modules/shop/controllers/OrdersController.php',
+    'app\modules\shop\controllers\BackendOrderController' => '@app/web/theme/module/modules/shop/controllers/BackendOrderController.php',
 ]);
 
 //echo "<pre style='display: none'>"; dump(Yii::$classMap); echo "</pre>";
