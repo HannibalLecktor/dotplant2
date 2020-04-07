@@ -13,10 +13,6 @@ use kartik\icons\Icon;
 <div class="row">
     <div class="col-md-5 col-sm-12">
         <?php BackendWidget::begin(['title' => Yii::t('app', 'Colors'), 'options' => ['class' => 'visible-header']]); ?>
-            <?//= $form->field($model, 'primary_color')->widget(\kartik\widgets\ColorInput::className()) ?>
-            <?//= $form->field($model, 'secondary_color')->widget(\kartik\widgets\ColorInput::className()) ?>
-            <?//= $form->field($model, 'action_color')->widget(\kartik\widgets\ColorInput::className()) ?>
-
         <?php BackendWidget::end() ?>
     </div>
     <div class="col-md-5 col-sm-12">
