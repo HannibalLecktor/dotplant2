@@ -183,6 +183,18 @@ $config = [
     ],
 ];
 
+if (YII_DEBUG) {
+    // configuration adjustments for 'dev' environment
+    $allConfig['bootstrap'][] = 'debug';
+    $allConfig['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => [],
+        'panels' => [
+        ],
+    ];
+    $allConfig['modules']['gii'] = 'yii\gii\Module';
+}
+
 $allConfig = ArrayHelper::merge(
     file_exists(__DIR__ . '/common.php') ? require(__DIR__ . '/common.php') : [],
     $config,
@@ -206,17 +218,5 @@ $allConfig = ArrayHelper::merge(
     file_exists(__DIR__ . '/common-local.php') ? require(__DIR__ . '/common-local.php') : [],
     file_exists(__DIR__ . '/web-local.php') ? require(__DIR__ . '/web-local.php') : []
 );
-
-if (YII_DEBUG) {
-    // configuration adjustments for 'dev' environment
-    $allConfig['bootstrap'][] = 'debug';
-    $allConfig['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-        'allowedIPs' => ['*'],
-        'panels' => [
-        ],
-    ];
-    $allConfig['modules']['gii'] = 'yii\gii\Module';
-}
 
 return $allConfig;
