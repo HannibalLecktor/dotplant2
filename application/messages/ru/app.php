@@ -4,6 +4,7 @@ return array (
   'Before get the wholesale price stay {price}' => 'До обслуживания по оптовым ценам осталось {price}',
   'You serve with wholesale prices' => 'Вы обслуживаетесь по оптовым ценам',
   'Wholesale begin price' => 'Начало оптовых цен',
+  'Wholesale begin active' => 'Разрешить покупку по оптовым ценам',
   'Wholesale price' => 'Оптовая цена',
   'Wholesale old Price' => 'Старая оптовая цена',
   'Bill-file' => ' Реквизиты',
