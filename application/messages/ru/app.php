@@ -99,6 +99,7 @@ return array (
   'Administrator' => 'Администратор',
   'Advanced Css Class' => 'Расширенный CSS сласс',
   'After inner-content' => '',
+  'Agreement' => 'С условиями гарантии ознакомлен',
   'Alias' => 'Псевдоним',
   'All Day' => 'Весь день',
   'All available theme widgets' => 'Все доступные виджеты темы',
