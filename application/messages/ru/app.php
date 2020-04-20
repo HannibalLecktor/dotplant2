@@ -1,6 +1,9 @@
 <?php
 
 return array (
+    'Warrant conditions' => 'Условия гарантии',
+    'Payment are required' => 'Необходимо выбрать способ оплаты',
+    'Agreement conditions are required' => 'Примите условия гарантии пожалуйста',
   'Before get the wholesale price stay {price}' => 'До обслуживания по оптовым ценам осталось {price}',
   'You serve with wholesale prices' => 'Вы обслуживаетесь по оптовым ценам',
   'Wholesale begin price' => 'Начало оптовых цен',
