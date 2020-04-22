@@ -1,6 +1,7 @@
 <?php
 
 return array (
+    'Comment to order' => 'Комментарий к заказу',
     'Warrant conditions' => 'Условия гарантии',
     'Payment are required' => 'Необходимо выбрать способ оплаты',
     'Agreement conditions are required' => 'Примите условия гарантии пожалуйста',
