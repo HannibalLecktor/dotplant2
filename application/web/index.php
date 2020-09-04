@@ -34,6 +34,7 @@ $config = require(__DIR__ . '/../config/web.php');
     'app\modules\image\models\ThumbnailWatermark' => '@app/web/theme/module/modules/image/models/ThumbnailWatermark.php',
     'app\modules\shop\controllers\OrdersController' => '@app/web/theme/module/modules/shop/controllers/OrdersController.php',
     'app\modules\shop\controllers\BackendOrderController' => '@app/web/theme/module/modules/shop/controllers/BackendOrderController.php',
+    'app\modules\shop\events\StagePayment' => '@app/web/theme/module/modules/shop/events/StagePayment.php',
 ]);
 
 (new yii\web\Application($config))->run();
