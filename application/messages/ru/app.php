@@ -219,6 +219,7 @@ return array (
   'Choose' => 'Выбрать',
   'Choose item' => 'Выберите элемент',
   'City ID' => 'Город',
+    'City' => 'Город',
   'Class' => 'Класс',
   'Class Name' => 'Имя класса',
   'Clear' => 'Очистить',
