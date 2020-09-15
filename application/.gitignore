@@ -1,10 +1,14 @@
 /messages/ru/app.php
 web/.sass-cache
 web/css/.sass-cache
-web/theme
-web/theme/*
 web/favicon.ico
 modules/seo/redirects/redirectsArray.php
 jolici.phar
 installed.mark
 vendor
+web/theme/node_modules/
+web/theme/.sass-cache
+web/theme/dist/
+web/theme/*.keep
+web/theme/*.htaccess
+web/theme/import/
