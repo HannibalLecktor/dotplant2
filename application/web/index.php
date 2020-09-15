@@ -22,6 +22,7 @@ $config = require(__DIR__ . '/../config/web.php');
     'app\modules\shop\models\Category' => '@app/web/theme/module/modules/shop/models/Category.php',
     'app\modules\shop\models\ConfigConfigurationModel' => '@app/web/theme/module/modules/shop/models/ConfigConfigurationModel.php',
     'app\modules\shop\models\Order' => '@app/web/theme/module/modules/shop/models/Order.php',
+    'app\modules\shop\models\DeliveryInformation' => '@app/web/theme/module/modules/shop/models/DeliveryInformation.php',
     'app\modules\shop\models\OrderItem' => '@app/web/theme/module/modules/shop/models/OrderItem.php',
     'app\modules\shop\controllers\CartController' => '@app/web/theme/module/modules/shop/controllers/CartController.php',
     'app\modules\shop\controllers\ProductController' => '@app/web/theme/module/modules/shop/controllers/ProductController.php',
